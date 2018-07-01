@@ -1,0 +1,16 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <div class="row panel panel-primary">
+    <div class="panel-heading text-center">Sign Up</div>
+    <div class="panel-body">
+      <form class="form-group">
+        <input class="form-control" [(ngModel)]="signupForm.username" type="text" name="username" placeholder="Username" /><br /><br />
+        <input class="form-control" [(ngModel)]="signupForm.password" type="text" name="password" placeholder="Password" /><br /><br />
+        <div class="text-center">
+          <button class="btn btn-primary" (click)="signup()" >Sign up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-md-4"></div>

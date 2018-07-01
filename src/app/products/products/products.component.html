@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div>
+            <input [(ngModel)]="filterBy" type="text" class="form-control" placeholder="Filter products"/>
+            <div class="alert alert-success" *ngIf="filterBy">
+                List filtered using: {{filterBy}}
+            </div>
+        </div>
+        
+        <table *ngIf="products && products.length" class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    <button class="btn btn-success" (click)="toggleImage()">
+                        {{showHideImage? 'Hide Image' : 'Show Image'}}
+                    </button>
+                </th>
+                <th>Product Name</th>
+                <th>Product Code</th>
+                <th>Price</th>
+                <th>Rating</th>
+            </tr>
+            <tr *ngFor="let product of products | products: filterBy">
+                <td>
+                    <img *ngIf="showHideImage" [src]="product.imageUrl" style="width: 50px;"/>
+                </td>
+                <td>
+                    <a href="#" [routerLink]="['/products', product.productCode]">{{product.productName}}</a>
+                </td>
+                <td>{{product.productCode}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                  <app-rating [rating]="product.starRating"></app-rating>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

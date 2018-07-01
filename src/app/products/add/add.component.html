@@ -1,0 +1,64 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Add products</div>
+  <div class="panel-body">
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+      <div class="form-group">
+        <label class="control-label">Produce ID</label>
+        <input type="number" class="form-control" placeholder="Produce ID" formControlName="productId">
+        <div *ngIf="(!productForm.get('productId').valid) && (productForm.get('productId').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('productId').errors.required">Please enter produce ID!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Product Name</label>
+        <input type="text" class="form-control" placeholder="Product Name" formControlName="productName">
+        <div *ngIf="(!productForm.get('productName').valid) && (productForm.get('productName').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('productName').errors.required">Please enter produce name!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Product Code</label>
+        <input type="text" class="form-control" placeholder="Product Code" formControlName="productCode">
+        <div *ngIf="(!productForm.get('productCode').valid) && (productForm.get('productCode').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('productCode').errors.required">Please enter produce code!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Release Date</label>
+        <input type="text" class="form-control" placeholder="Release Date" formControlName="releaseDate">
+        <div *ngIf="(!productForm.get('releaseDate').valid) && (productForm.get('releaseDate').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('releaseDate').errors.required">Please enter release date!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Description</label>
+        <input type="text" class="form-control" placeholder="Description" formControlName="description">
+        <div *ngIf="(!productForm.get('description').valid) && (productForm.get('description').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('description').errors.required">Please enter description!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Price</label>
+        <input type="number" class="form-control" placeholder="Price" formControlName="price">
+        <div *ngIf="(!productForm.get('price').valid) && (productForm.get('price').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('price').errors.required">Please enter price!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Star Rating</label>
+        <input type="number" class="form-control" placeholder="Star Rating" formControlName="starRating">
+        <div *ngIf="(!productForm.get('starRating').valid) && (productForm.get('starRating').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('starRating').errors.required">Please enter star rating!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Image URL</label>
+        <input type="url" class="form-control" placeholder="Image URL" formControlName="imageUrl">
+        <div *ngIf="(!productForm.get('imageUrl').valid) && (productForm.get('imageUrl').touched)">
+          <div class="alert alert-danger" *ngIf="productForm.get('imageUrl').errors.required">Please enter image URL!</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!productForm.valid">Add</button>
+    </form>
+  </div>
+</div>

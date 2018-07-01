@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Product Detail: {{product.productName}}</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <th>Name:</th>
+            <td>{{product.productName}}</td>
+          </tr>
+          <tr>
+            <th>Code:</th>
+            <td>{{product.productCode}}</td>
+          </tr>
+          <tr>
+            <th>Description:</th>
+            <td>{{product.description}}</td>
+          </tr>
+          <tr>
+            <th>Availability:</th>
+            <td>{{product.releaseDate}}</td>
+          </tr>
+          <tr>
+            <th>Price:</th>
+            <td>{{product.price}}</td>
+          </tr>
+          <tr>
+            <th>5 Star Rating:</th>
+            <td>
+              <app-rating *ngIf="product.starRating" [rating]="product.starRating"></app-rating>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <img class="img-responsive center-block" *ngIf="product.imageUrl" [src]="product.imageUrl"/>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-primary" (click)="backtolist()"><span class="glyphicon glyphicon-chevron-left"></span>Back</button>
+  </div>
+</div>
+
