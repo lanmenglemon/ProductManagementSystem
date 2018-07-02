@@ -13,7 +13,15 @@ export class RatingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.rating_arr = Array(Math.round(this.rating)).fill(Math.round(this.rating));
+    this.rating_arr = Array(Math.ceil(this.rating));
+    for (let i = 0; i < this.rating_arr.length; i++) {
+      if (i == this.rating_arr.length - 1) {
+        this.rating_arr[i] = this.rating;
+        break;
+      }
+      this.rating_arr[i] = i;
+    }
+    console.log(this.rating_arr);
   }
 
 }

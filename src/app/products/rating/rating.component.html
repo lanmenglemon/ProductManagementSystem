@@ -1,5 +1,6 @@
 <div>
   <span *ngFor="let item of rating_arr">
-      <span class="glyphicon glyphicon-star"></span>
+      <span *ngIf="item % 1 == 0" class="glyphicon glyphicon-star"></span>
+      <span *ngIf="item % 1 !== 0" class="glyphicon glyphicon-star half"></span>
   </span>
 </div>
